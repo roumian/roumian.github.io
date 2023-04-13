@@ -111,7 +111,7 @@ h1 {
 	background-color: var(--background-color);
 	/*border-right: 1px solid var(--gray-color);
 	border-left: 1px solid var(--gray-color);*/
-	border-bottom: 1px solid var(--gray-color);
+	border-bottom: /*1px solid var(--gray-color)*/ none;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
