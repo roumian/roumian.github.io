@@ -437,6 +437,12 @@ h1 {
 	text-align: center;
 }
 
+@media screen and (max-width: 640px) {
+	.container {
+		box-shadow: none;
+	}
+}
+
 @media screen and (max-width: 400px) {
 	h1 {
 		font-size: 26px;
