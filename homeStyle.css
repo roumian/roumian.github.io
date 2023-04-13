@@ -20,7 +20,7 @@ body {
 .container {
 	/*border-left: 1px solid var(--gray-color);
 	border-right: 1px solid var(--gray-color);*/
-	box-shadow: /*0px 0px 0px 1px var(--gray-color)*/ none;
+	box-shadow: 0px 0px 0px 1px var(--gray-color);
 	width: 100%;
 	max-width: 640px;
 	margin: 0 auto;
@@ -42,6 +42,7 @@ body {
 	border-left: 1px solid var(--gray-color);*/
 	border-bottom: 1px solid var(--gray-color);
 	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
 	background-color: rgba(0, 0, 0, 0.682);
 	z-index: 21;
 }
@@ -443,7 +444,7 @@ h1 {
 	}
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
 	h1 {
 		font-size: 26px;
 	}
