@@ -1,0 +1,12 @@
+:root {
+	--background-color: black;
+	--text-color: whitesmoke;
+	--accent-color: #1a8dda;
+	--accent-dark-color: #1977cf;
+	--accent-darker-color: #0e3166;
+	--gray-color: #6f7479;
+	--gray-2-color: #3e4144;
+	--red-color: #ff0000;
+	--display-font: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	--body-font: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
