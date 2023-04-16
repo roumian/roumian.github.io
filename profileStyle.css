@@ -100,12 +100,20 @@
 .other-button {
 	font-family: var(--display-font);
 	padding: 0;
-	margin: 0;
+	margin: -5px 0;
 	background-color: transparent;
 	border: none;
 	font-size: 15px;
-	text-decoration: underline;
 	color: var(--accent-color);
 	font-weight: 600;
 	cursor: pointer;
+	text-align: center;
+}
+
+.other-button.forgot-password {
+	width: 100%;
+}
+
+.other-button:hover {
+	text-decoration: underline;
 }

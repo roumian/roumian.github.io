@@ -6,7 +6,7 @@ body {
 	padding: 0;
 }
 
-.container {
+.container.active {
 	/*border-left: 1px solid var(--gray-color);
 	border-right: 1px solid var(--gray-color);*/
 	box-shadow: 0px 0px 0px 1px var(--gray-color);
@@ -19,6 +19,12 @@ body {
 	flex-direction: column;
 	justify-content: space-between;
 	position: relative;
+	visibility: visible;
+}
+
+.container {
+	display: none;
+	visibility: hidden;
 }
 
 .header {
