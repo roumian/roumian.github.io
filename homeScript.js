@@ -1,4 +1,5 @@
 const textareas = document.querySelectorAll(".textarea");
+const commentButtons = document.querySelectorAll(".comment-button");
 const characterLimit = 500;
 
 onStart();
@@ -45,5 +46,22 @@ for (let i = 0; i < textareas.length; i++) {
 		}
 
 		characterCount.innerHTML = textarea.value.length + "/" + characterLimit;
+	});
+}
+
+for (let i = 0; i < commentButtons.length; i++) {
+	commentButtons[i].addEventListener("click", (e) => {
+		let button = commentButtons[i];
+		console.log(button);
+		console.log(button.parentElement.parentElement.parentElement);
+		let commentsContainer = button.parentElement.parentElement.parentElement.querySelector(".feed-item-comments-container");
+
+		if (button.classList.contains("active")) {
+			button.classList.remove("active");
+			commentsContainer.classList.remove("active");
+		} else {
+			button.classList.add("active");
+			commentsContainer.classList.add("active");
+		}
 	});
 }

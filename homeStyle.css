@@ -100,10 +100,42 @@
 	background-color: var(--background-color);
 }
 
-.feed-item-date-container {
+.feed-item-username-date-container {
 	width: calc(100% - 40px);
 	padding: 0;
 	padding-top: 20px;
+	margin: 0 auto;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	gap: 20px;
+}
+
+.feed-item-username-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0;
+	margin: 0 auto;
+	position: relative;
+}
+
+.feed-item-username {
+	width: 100%;
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--text-color);
+	padding: 0;
+	margin: 0;
+}
+
+.feed-item-date-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+	padding: 0;
 	margin: 0 auto;
 	position: relative;
 }
@@ -135,8 +167,9 @@
 
 .feed-item-buttons {
 	padding: 0;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 	margin: 0 auto;
+	margin-top: -5px;
 	width: calc(100% - 40px);
 	display: flex;
 	flex-direction: row;
@@ -161,9 +194,26 @@
 
 .feed-item-button {
 	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	border-radius: 100px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s ease-in-out;
 }
 
-.feed-item-button:hover > path {
+.feed-item-button.active > svg > path {
+	fill: var(--accent-color);
+}
+
+.feed-item-button:hover {
+	background-color: var(--accent-darker-color);
+}
+
+.feed-item-button:hover > svg > path {
 	fill: var(--accent-color);
 }
 
@@ -181,9 +231,10 @@
 	display: hidden;
 	pointer-events: none;
 	visibility: hidden;
+	overflow: hidden;
 }
 
-.feed-item-comments-container.open-comment-section {
+.feed-item-comments-container.active {
 	width: 100%;
 	padding: 0;
 	display: flex;
@@ -204,18 +255,50 @@
 	border-top: 1px solid var(--gray-color);
 }
 
-.feed-item-comment-date-container {
+.feed-item-comment-username-date-container {
+	width: 100%;
+	padding: 0;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	margin: 0 auto;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	gap: 20px;
+}
+
+.feed-item-comment-username-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 	padding: 0;
 	margin: 0;
+}
+
+.feed-item-comment-username {
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--text-color);
+	padding: 0;
+	margin: 0;
+}
+
+.feed-item-comment-date-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 	width: 100%;
+	padding: 0;
+	margin: 0;
 }
 
 .feed-item-comment-date {
+	width: 100%;
 	font-size: 15px;
 	font-weight: 500;
 	color: var(--gray-color);
 	padding: 0;
-	padding-top: 5px;
 	margin: 0;
 }
 
