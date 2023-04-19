@@ -20,7 +20,7 @@ loginButton.addEventListener("click", (e) => {
 
 	loginButton.classList.add("loading");
 
-	fetch("http://localhost:3000/profile/login", {
+	fetch(server + "/profile/login", {
 		method: "POST",
 		credentials: "include",
 		headers: {
@@ -76,7 +76,7 @@ registerButton.addEventListener("click", (e) => {
 		return;
 	}
 
-	fetch("http://localhost:3000/profile/register", {
+	fetch(server + "/profile/register", {
 		method: "POST",
 		credentials: "include",
 		headers: {
@@ -115,7 +115,7 @@ takeToLogin.addEventListener("click", OpenLogin);
 const logoutButton = document.querySelector("#logout-button");
 
 logoutButton.addEventListener("click", (e) => {
-	fetch("http://localhost:3000/profile/logout", {
+	fetch(server + "/profile/logout", {
 		method: "GET",
 		credentials: "include",
 		headers: {
@@ -146,7 +146,7 @@ const bioSaveButton = document.querySelector("#bio-save-button");
 bioSaveButton.addEventListener("click", (e) => {
 	bioSaveButton.classList.add("loading");
 
-	fetch("http://localhost:3000/profile/update", {
+	fetch(server + "/profile/update", {
 		method: "POST",
 		credentials: "include",
 		headers: {
@@ -179,7 +179,7 @@ function OpenProfile() {
 	if (!user) {
 		ShowProfileLoading();
 
-		fetch("http://localhost:3000/profile", {
+		fetch(server + "/profile", {
 			method: "GET",
 			credentials: "include",
 			headers: {

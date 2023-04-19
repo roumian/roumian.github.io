@@ -37,7 +37,7 @@ profileButton.addEventListener("click", function () {
 	OpenProfile();
 });
 
-fetch("http://localhost:3000/home", {
+fetch(server + "/home", {
 	method: "GET",
 	credentials: "include",
 	headers: {
