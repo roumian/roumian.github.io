@@ -254,6 +254,8 @@ function ShowProfileLoading() {
 	loginContainer.classList.remove("active");
 	profileContainer.classList.remove("active");
 	registerContainer.classList.remove("active");
+	profile.classList.add("credentials-profile");
+	profile.classList.remove("profile");
 }
 
 function RemoveProfileLoading() {
