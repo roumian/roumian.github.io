@@ -20,13 +20,20 @@
 	margin: 0;
 }
 
-.loading-loader {
+.loading-loader.active {
 	border: 4px solid var(--accent-darker-color);
 	border-top: 4px solid var(--accent-color);
 	border-radius: 50%;
 	width: 18px;
 	height: 18px;
 	animation: spin 0.7s linear infinite;
+	display: block;
+	visibility: visible;
+}
+
+.loading-loader {
+	display: none;
+	visibility: hidden;
 }
 
 @keyframes spin {

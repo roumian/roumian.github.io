@@ -4,7 +4,6 @@ var profileButton = document.querySelector("#profile-button");
 
 var home = document.querySelector("#home");
 var best = document.querySelector("#best");
-var profile = document.querySelector("#profile");
 
 homeButton.addEventListener("click", function () {
 	homeButton.classList.add("active");
@@ -34,4 +33,33 @@ profileButton.addEventListener("click", function () {
 	home.classList.remove("active");
 	best.classList.remove("active");
 	profile.classList.add("active");
+
+	OpenProfile();
 });
+
+fetch("http://localhost:3000/home", {
+	method: "GET",
+	credentials: "include",
+	headers: {
+		"Content-Type": "application/json"
+	}
+})
+	.then((res) => {
+		return res.json();
+	})
+	.then((data) => {
+		if (data.success) {
+			user = data.success.data.user;
+			chats = data.success.data.chats;
+
+			document.querySelector("#container").classList.add("active");
+			document.querySelector("#loading-container").classList.remove("active");
+
+			OpenHome();
+		} else if (data.error) {
+			console.log(data.error.message);
+		}
+	})
+	.catch((error) => {
+		console.log(error);
+	});

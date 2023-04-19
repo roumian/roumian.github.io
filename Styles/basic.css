@@ -5,8 +5,9 @@
 	--accent-dark-color: #1977cf;
 	--accent-darker-color: #0e3166;
 	--gray-color: #6f7479;
-	--gray-2-color: #3e4144;
-	--red-color: #ff0000;
+	--gray-2-color: rgba(255, 255, 255, 0.05);
+	--red-color: #ff0000dd;
+	--red-color-hover: #ff0000a3;
 	--display-font: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	--body-font: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
