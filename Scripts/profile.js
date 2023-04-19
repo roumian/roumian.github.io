@@ -251,6 +251,9 @@ function OpenRegister() {
 
 function ShowProfileLoading() {
 	profileLoader.classList.add("active");
+	loginContainer.classList.remove("active");
+	profileContainer.classList.remove("active");
+	registerContainer.classList.remove("active");
 }
 
 function RemoveProfileLoading() {
