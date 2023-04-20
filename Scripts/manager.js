@@ -50,6 +50,7 @@ fetch(server + "/home", {
 	.then((data) => {
 		if (data.success) {
 			user = data.success.data.user;
+			if (user && !user.bio) user.bio = "";
 			chats = data.success.data.chats;
 
 			document.querySelector("#container").classList.add("active");

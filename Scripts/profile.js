@@ -32,7 +32,6 @@ loginButton.addEventListener("click", (e) => {
 		})
 	})
 		.then((res) => {
-			console.log(res.headers);
 			return res.json();
 		})
 		.then((data) => {
@@ -42,6 +41,7 @@ loginButton.addEventListener("click", (e) => {
 				passwordLoginInput.value = "";
 
 				user = data.success.data.user;
+				if (user && !user.bio) user.bio = "";
 				OpenProfile();
 				loginButton.classList.remove("loading");
 			} else if (data.error) {
@@ -98,6 +98,7 @@ registerButton.addEventListener("click", (e) => {
 				passwordLoginInput.value = "";
 
 				user = data.success.data.user;
+				if (user && !user.bio) user.bio = "";
 				OpenProfile();
 			} else if (data.error) {
 				registerError.textContent = data.error.message;
@@ -153,7 +154,7 @@ bioSaveButton.addEventListener("click", (e) => {
 			"Content-Type": "application/json"
 		},
 		body: JSON.stringify({
-			bio: bioProfile.textContent
+			bio: bioProfile.value
 		})
 	})
 		.then((res) => {
@@ -162,7 +163,8 @@ bioSaveButton.addEventListener("click", (e) => {
 		.then((data) => {
 			if (data.success) {
 				user = data.success.data.user;
-				bioProfile.textContent = user.bio;
+				if (user && !user.bio) user.bio = "";
+				bioProfile.value = user.bio;
 				bioSaveButton.classList.remove("loading");
 			} else if (data.error) {
 				bioSaveButton.classList.remove("loading");
@@ -193,6 +195,7 @@ function OpenProfile() {
 				if (data.success) {
 					if (data.success.data.user) {
 						user = data.success.data.user;
+						if (user && !user.bio) user.bio = "";
 
 						loginContainer.classList.remove("active");
 						profileContainer.classList.add("active");
@@ -202,7 +205,7 @@ function OpenProfile() {
 
 						usernameProfile.textContent = user.username;
 						emailProfile.textContent = user.email;
-						bioProfile.textContent = user.bio;
+						bioProfile.value = user.bio;
 						RemoveProfileLoading();
 					} else {
 						user = null;
@@ -229,7 +232,7 @@ function OpenProfile() {
 
 		usernameProfile.textContent = user.username;
 		emailProfile.textContent = user.email;
-		bioProfile.textContent = user.bio;
+		bioProfile.value = user.bio;
 	}
 }
 
