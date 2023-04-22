@@ -178,7 +178,7 @@ bioSaveButton.addEventListener("click", (e) => {
 });
 
 function OpenProfile() {
-	if (!user) {
+	if (!user && !mychats) {
 		ShowProfileLoading();
 
 		fetch(server + "/profile", {
@@ -196,6 +196,7 @@ function OpenProfile() {
 					if (data.success.data.user) {
 						user = data.success.data.user;
 						if (user && !user.bio) user.bio = "";
+						mychats = data.success.data.mychats;
 
 						loginContainer.classList.remove("active");
 						profileContainer.classList.add("active");
