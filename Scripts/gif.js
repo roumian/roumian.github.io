@@ -29,12 +29,15 @@ addGifButton.addEventListener("click", () => {
 			console.log(error);
 			gifSearchButton.classList.remove("loading");
 		});
+
+	document.body.style.overflow = "hidden";
 });
 
 const closeGifWindow = gifWindow.querySelector("#gif-window-close");
 
 closeGifWindow.addEventListener("click", () => {
 	DeactivateComponent(gifWindow);
+	document.body.style.overflow = "auto";
 });
 
 const gifSearchButton = gifWindow.querySelector("#gif-search-button");

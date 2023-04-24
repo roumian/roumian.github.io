@@ -25,6 +25,10 @@
 	transition: background-color 0.2s ease-in-out;
 }
 
+.window.active body {
+	overflow: hidden;
+}
+
 .window-container {
 	width: calc(100% - 20px);
 	height: 100%;
