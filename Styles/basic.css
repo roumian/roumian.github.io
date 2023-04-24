@@ -8,6 +8,7 @@
 	--gray-2-color: rgba(255, 255, 255, 0.05);
 	--red-color: #ff0000dd;
 	--red-color-hover: #ff0000a3;
+	--max-width: 640px;
 	--display-font: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	--body-font: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }

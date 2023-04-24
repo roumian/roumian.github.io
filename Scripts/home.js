@@ -1,9 +1,54 @@
 const feed = document.querySelector("#feed");
 const characterLimit = 500;
 
+var currentPost = {
+	message: "",
+	media: ""
+};
+
 function OnStart() {
 	const textareas = home.querySelectorAll(".textarea");
 	const commentButtons = home.querySelectorAll(".comment-button");
+
+	const homeImageInput = home.querySelector("#home-image-input");
+	const homeGifInput = home.querySelector("#home-gif-input");
+	const homeMediaPreview = home.querySelector("#home-media-preview");
+
+	const homeMediaXButton = home.querySelector("#home-media-x-button");
+	const homeWriteMedia = home.querySelector("#home-write-media");
+
+	homeMediaXButton.removeEventListener("click", (e) => {});
+
+	homeMediaXButton.addEventListener("click", (e) => {
+		homeMediaPreview.src = "";
+		homeImageInput.value = "";
+		homeGifInput.value = "";
+		DeactivateComponent(homeWriteMedia);
+	});
+
+	homeImageInput.removeEventListener("change", (e) => {});
+
+	homeImageInput.addEventListener("change", (e) => {
+		console.log("changed");
+
+		ConvertImageToBase64(URL.createObjectURL(e.target.files[0]), (base64) => {
+			homeMediaPreview.src = base64;
+			currentPost.media = base64;
+			ActivateComponent(homeWriteMedia);
+		});
+	});
+
+	homeGifInput.removeEventListener("change", (e) => {});
+
+	homeGifInput.addEventListener("change", (e) => {
+		console.log("changed");
+
+		ConvertImageToBase64(URL.createObjectURL(e.target.files[0]), (base64) => {
+			homeMediaPreview.src = base64;
+			currentPost.media = base64;
+			ActivateComponent(homeWriteMedia);
+		});
+	});
 
 	for (var i = 0; i < textareas.length; i++) {
 		var textarea = textareas[i];
@@ -11,7 +56,9 @@ function OnStart() {
 		textarea.style.height = 0;
 		textarea.style.height = textarea.scrollHeight + 20 + "px";
 
-		var characterCount = textareas[i].nextElementSibling.querySelector(".character-count");
+		var characterCount;
+		if (textarea.nextElementSibling.nextElementSibling) characterCount = textareas[i].nextElementSibling.nextElementSibling.querySelector(".character-count");
+		else characterCount = textareas[i].nextElementSibling.querySelector(".character-count");
 
 		if (textarea.value.length >= characterLimit) {
 			characterCount.style.color = "var(--red-color)";
@@ -33,7 +80,9 @@ function OnStart() {
 			textarea.style.height = 0;
 			textarea.style.height = textarea.scrollHeight + 20 + "px";
 
-			let characterCount = textarea.nextElementSibling.querySelector(".character-count");
+			let characterCount;
+			if (textarea.nextElementSibling.nextElementSibling) characterCount = textarea.nextElementSibling.nextElementSibling.querySelector(".character-count");
+			else characterCount = textarea.nextElementSibling.querySelector(".character-count");
 
 			if (textarea.value.length >= characterLimit) {
 				characterCount.style.color = "var(--red-color)";
@@ -50,7 +99,6 @@ function OnStart() {
 	}
 
 	for (let i = 0; i < commentButtons.length; i++) {
-		console.log(commentButtons[i]);
 		commentButtons[i].removeEventListener("click", (e) => {});
 		commentButtons[i].addEventListener("click", (e) => {
 			console.log("clicked");
