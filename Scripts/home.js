@@ -11,7 +11,6 @@ function OnStart() {
 	const commentButtons = home.querySelectorAll(".comment-button");
 
 	const homeImageInput = home.querySelector("#home-image-input");
-	const homeGifInput = home.querySelector("#home-gif-input");
 	const homeMediaPreview = home.querySelector("#home-media-preview");
 
 	const homeMediaXButton = home.querySelector("#home-media-x-button");
@@ -29,18 +28,6 @@ function OnStart() {
 	homeImageInput.removeEventListener("change", (e) => {});
 
 	homeImageInput.addEventListener("change", (e) => {
-		console.log("changed");
-
-		ConvertImageToBase64(URL.createObjectURL(e.target.files[0]), (base64) => {
-			homeMediaPreview.src = base64;
-			currentPost.media = base64;
-			ActivateComponent(homeWriteMedia);
-		});
-	});
-
-	homeGifInput.removeEventListener("change", (e) => {});
-
-	homeGifInput.addEventListener("change", (e) => {
 		console.log("changed");
 
 		ConvertImageToBase64(URL.createObjectURL(e.target.files[0]), (base64) => {
